@@ -1,2 +1,13 @@
 node_modules/
 
+public/app/js/index.js
+public/app/css/styles.css
+public/app/js/index.js.map
+
+public/page/js/index.js
+public/page/css/styles.css
+public/page/js/index.js.map
+
+public/pop/js/index.js
+public/pop/css/styles.css
+public/pop/js/index.js.map
