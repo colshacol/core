@@ -1,14 +1,47 @@
 {
 	"presets": [
-		"@babel/preset-env",
+		["@babel/preset-env", { "modules": false }],
 		"@babel/preset-flow",
 		"@babel/preset-react",
 		"@babel/preset-stage-0"
 	],
 
 	"plugins": [
+		"react-hot-loader/babel",
 		"@babel/plugin-proposal-class-properties",
 		"@babel/plugin-proposal-optional-chaining",
-		"@babel/plugin-proposal-decorators"
+		"@babel/plugin-proposal-decorators",
+
+		[
+			"sitrep",
+			{
+				"label": "inspect"
+			}
+		],
+
+		[
+			"webpack-alias",
+			{
+					"config": "./.webpack.js"
+			}
+		],
+
+		[
+			"flow-runtime",
+			{
+					"assert": true,
+					"annotate": true
+			}
+		],
+
+		[
+			"react-css-modules",
+			{
+					"generateScopedName": "[local]--[name]",
+					"context": "./source/app",
+					"webpackHotModuleReloading": true,
+					"handleMissingStyleName": "warn"
+			}
+		]
 	]
 }
