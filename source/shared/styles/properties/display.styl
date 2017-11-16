@@ -1,0 +1,14 @@
+flexRows = row row-reverse;
+flexColumns = column column-reverse;
+
+display(which) {
+	if (which in flexRows) {
+		display: flex;
+		flex-direction: which;
+	} else if (which in flexColumns) {
+		display: flex;
+		flex-direction: which;
+	} else {
+		display: which;
+	}
+}
