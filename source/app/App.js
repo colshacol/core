@@ -1,13 +1,16 @@
-import * as React from 'react';
+import * as React from "react";
 
-import './styles/App.css';
+import { EventType } from "@app/components/EventType";
+import "./styles/App.css";
 
 class App extends React.Component {
-	render() {
-		return (
-			<h1 styleName='title'>Hahahah</h1>
-		)
-	}
+  render() {
+    return [
+      <EventType type="mouse" />,
+      <EventType type="key" />,
+      <EventType type="assert" />
+    ];
+  }
 }
 
 export default App;

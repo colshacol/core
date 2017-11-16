@@ -1,0 +1,28 @@
+.EventType {
+  width: 60px;
+  height: 60px;
+  box-shadow: squareShadow;
+  transition: all 0.3s;
+  border-radius: 1px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+}
+
+.EventType:hover {
+  box-shadow: squareShadow-hovered;
+  transform: scale(1.025);
+}
+
+.red {
+  background: redGradient;
+}
+
+.blue {
+  background: blueGradient;
+}
+
+.green {
+  background: greenGradient;
+}
