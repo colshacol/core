@@ -1,15 +1,15 @@
 import * as React from "react";
 
-import { EventType } from "@app/components/EventType";
+import TestsList from '@app/scenes/TestsList';
 import "./styles/App.css";
-
 class App extends React.Component {
   render() {
-    return [
-      <EventType type="mouse" />,
-      <EventType type="key" />,
-      <EventType type="assert" />
-    ];
+    return (
+				<div>
+					{/* TODO: Routng. */}
+					<TestsList/>
+				</div>
+		);
   }
 }
 

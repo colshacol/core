@@ -1,0 +1,1 @@
+export addTest from './addTest';

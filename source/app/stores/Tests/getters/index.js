@@ -1,0 +1,1 @@
+export testCountTimesTwo from './testCountTimesTwo';

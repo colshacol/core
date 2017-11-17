@@ -5,7 +5,7 @@ import protect from './protect';
 
 export default ({ statics, observables, actions, getters }) => Component => {
 	return @observer class _Store extends React.Component {
-		actions = {};
+		__actions = {};
 
 		constructor(props) {
 			super(props);
@@ -18,7 +18,7 @@ export default ({ statics, observables, actions, getters }) => Component => {
 		__applyActions = ({ actions }) => {
 			const store = this;
 			Object.entries(actions).forEach(([name, func]) => {
-				store.actions[name] = action(func(store));
+				store.__actions[name] = action(func(store));
 			});
 		};
 
@@ -35,14 +35,16 @@ export default ({ statics, observables, actions, getters }) => Component => {
 
 		__applyStaticData = ({ statics }) => {
 			const store = this;
-			Object.assign(this, statics);
-			store.staticsKeys = Object.keys(statics);
+			const staticsData = statics(store.props);
+			Object.assign(store, staticsData);
+			store.staticsKeys = Object.keys(staticsData);
 		};
 
 		__applyObservableData = ({ observables }) => {
 			const store = this;
-			extendObservable(this, observables);
-			store.observablesKeys = Object.keys(observables);
+			const observablesData = observables(store.props);
+			extendObservable(store, observablesData);
+			store.observablesKeys = Object.keys(observablesData);
 		};
 
 		get __renderData() {
@@ -59,7 +61,7 @@ export default ({ statics, observables, actions, getters }) => Component => {
 				<Component
 					{...this.props}
 					store={{
-						actions: this.actions,
+						actions: this.__actions,
 						data: this.__renderData,
 					}}
 				/>
