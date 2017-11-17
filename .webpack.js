@@ -4,14 +4,12 @@ const { resolve } = require("path");
 
 const resolver = path => resolve(__dirname, path);
 
-console.log("......", resolver("source/app/components"));
-
 const devServerClinet = "webpack-dev-server/client?http://localhost:8080";
 const hotLoaderPatch = "react-hot-loader/patch";
 
 module.exports = {
   context: resolver("source"),
-  devtool: "eval-source-map",
+  devtool: 'cheap-module-source-map',
   stats: "errors-only",
   watch: true,
   cache: true,
@@ -95,14 +93,17 @@ module.exports = {
       ".jsx",
       ".ttf",
       ".styl"
-    ],
+		],
+
     alias: {
       "@app/assets": resolver("source/app/assets"),
       "@app/components": resolver("source/app/components"),
       "@app/constants": resolver("source/app/constants"),
-      "@app/models": resolver("source/app/models"),
+			"@app/models": resolver("source/app/models"),
+			"@app/stores": resolver("source/app/stores"),
       "@app/services": resolver("source/app/services"),
-      "@app/styles": resolver("source/app/styles"),
+			"@app/styles": resolver("source/app/styles"),
+			"@app/scenes": resolver("source/app/scenes"),
       "@app/utilities": resolver("source/app/utilities"),
 
       "@page/assets": resolver("source/page/assets"),

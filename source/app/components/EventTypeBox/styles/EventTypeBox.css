@@ -1,4 +1,4 @@
-.EventType {
+.EventTypeBox {
   width: 60px;
   height: 60px;
   box-shadow: squareShadow;
@@ -10,7 +10,7 @@
   margin: 8px;
 }
 
-.EventType:hover {
+.EventTypeBox:hover {
   box-shadow: squareShadow-hovered;
   transform: scale(1.025);
 }
