@@ -12,7 +12,7 @@ const render = (Component) => {
 	ReactDOM.render(
 		<AppContainer>
 			<Provider $tests={new TestsStore}>
-				<App/>
+				<App />
 			</Provider>
 		</AppContainer>,
 		document.getElementById('root')
