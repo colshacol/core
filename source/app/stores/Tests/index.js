@@ -1,15 +1,14 @@
-import { extendObservable, observable, action, computed } from 'mobx';
+import Store from '@app/utilities/Model/Store';
 import nanoid from 'nanoid';
 
-// TODO: Create modx store generator.
-export default class Tests {
-	@observable tests = [];
+import * as actions from './actions';
+import * as getters from './getters';
+import statics from './statics';
+import observables from './observables';
 
-	@computed get testCount() {
-		return this.tests.length;
-	}
-
-	@action addTest = () => {
-		this.tests.push({ type: 'mouse' });
-	}
-}
+export default Store({
+	actions,
+	getters,
+	statics,
+	observables
+});

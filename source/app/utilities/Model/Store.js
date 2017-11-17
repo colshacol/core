@@ -1,14 +1,11 @@
 import mobx, { observable, action, computed, extendObservable } from 'mobx';
-import { observer } from 'mobx-react';
-import * as React from 'react';
 import protect from './protect';
 
-export default ({ statics, observables, actions, getters }) => Component => {
-	return @observer class _Model extends React.Component {
-		__actions = {};
+export default ({ observables, actions, statics, getters }) => {
+	return class _Store {
+		actions = {};
 
-		constructor(props) {
-			super(props);
+		constructor() {
 			this.__applyActions({ actions });
 			this.__applyGetters({ getters });
 			this.__applyStaticData({ statics });
@@ -18,7 +15,7 @@ export default ({ statics, observables, actions, getters }) => Component => {
 		__applyActions = ({ actions }) => {
 			const store = this;
 			Object.entries(actions).forEach(([name, func]) => {
-				store.__actions[name] = action(func(store));
+				store.actions[name] = action(func(store));
 			});
 		};
 
@@ -37,35 +34,12 @@ export default ({ statics, observables, actions, getters }) => Component => {
 			const store = this;
 			const staticsData = statics(store.props);
 			Object.assign(store, staticsData);
-			store.staticsKeys = Object.keys(staticsData);
 		};
 
 		__applyObservableData = ({ observables }) => {
 			const store = this;
 			const observablesData = observables(store.props);
 			extendObservable(store, observablesData);
-			store.observablesKeys = Object.keys(observablesData);
 		};
-
-		get __renderData() {
-			const keys = [...this.staticsKeys, ...this.observablesKeys];
-			return keys.reduce((final, key) => {
-				final[key] = this[key];
-				return final;
-			}, {});
-		}
-
-		render() {
-			console.log('Store...', { store: this });
-			return (
-				<Component
-					{...this.props}
-					store={{
-						actions: this.__actions,
-						data: this.__renderData,
-					}}
-				/>
-			);
-		}
-	};
-};
+	}
+}
