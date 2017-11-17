@@ -1,48 +1,89 @@
 {
-	"presets": [
-		["@babel/preset-env", { "modules": false }],
-		"@babel/preset-flow",
-		"@babel/preset-react",
-		"@babel/preset-stage-0"
-	],
+	"env": {
+		"development": {
+			"presets": [["env", { "modules": false }], "flow", "react", "stage-0"],
 
-	"plugins": [
-		"react-hot-loader/babel",
-		"@babel/plugin-proposal-decorators",
-		["@babel/plugin-proposal-class-properties", {"loose": true}],
-		"@babel/plugin-proposal-optional-chaining",
-		"jsx-control-statements",
+			"plugins": [
+				"react-hot-loader/babel",
+				"transform-decorators-legacy",
+				["transform-class-properties", { "loose": true }],
+				"jsx-control-statements",
 
-		[
-			"sitrep",
-			{
-				"label": "inspect"
-			}
-		],
+				[
+					"sitrep",
+					{
+						"label": "inspect"
+					}
+				],
 
-		[
-			"webpack-alias",
-			{
-					"config": "./.webpack.js"
-			}
-		],
+				[
+					"webpack-alias",
+					{
+						"config": "./.webpack.js"
+					}
+				],
 
-		[
-			"flow-runtime",
-			{
-					"assert": true,
-					"annotate": true
-			}
-		],
+				[
+					"flow-runtime",
+					{
+						"assert": true,
+						"annotate": true
+					}
+				],
 
-		[
-			"react-css-modules",
-			{
-					"generateScopedName": "[local]--[name]",
-					"context": "./source/app",
-					"webpackHotModuleReloading": true,
-					"handleMissingStyleName": "warn"
-			}
-		]
-	]
+				[
+					"react-css-modules",
+					{
+						"generateScopedName": "[local]--[name]",
+						"context": "./source/app",
+						"webpackHotModuleReloading": true,
+						"handleMissingStyleName": "warn"
+					}
+				]
+			]
+		},
+
+		"test": {
+			"presets": [["env", {}], "flow", "react", "stage-0"],
+
+			"plugins": [
+				"react-hot-loader/babel",
+				"transform-decorators-legacy",
+				["transform-class-properties", { "loose": true }],
+				"jsx-control-statements",
+
+				[
+					"sitrep",
+					{
+						"label": "inspect"
+					}
+				],
+
+				[
+					"webpack-alias",
+					{
+						"config": "./.webpack.js"
+					}
+				],
+
+				[
+					"flow-runtime",
+					{
+						"assert": true,
+						"annotate": true
+					}
+				],
+
+				[
+					"react-css-modules",
+					{
+						"generateScopedName": "[local]--[name]",
+						"context": "./source/app",
+						"webpackHotModuleReloading": true,
+						"handleMissingStyleName": "warn"
+					}
+				]
+			]
+		}
+	}
 }
