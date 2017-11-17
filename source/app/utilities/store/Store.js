@@ -1,15 +1,17 @@
 import mobx, { observable, action, computed, extendObservable } from 'mobx';
 import protect from './protect';
 
-export default ({ observables, actions, statics, getters }) => {
+export default ({ name = '', observables, actions, statics, getters }) => {
 	return class _Store {
 		actions = {};
 
-		constructor() {
+		constructor(props) {
+			this.props = props;
 			this.__applyActions({ actions });
 			this.__applyGetters({ getters });
 			this.__applyStaticData({ statics });
 			this.__applyObservableData({ observables });
+			console.log('[ created store ]', name, { store: this, observables, statics });
 		}
 
 		__applyActions = ({ actions }) => {
@@ -34,12 +36,24 @@ export default ({ observables, actions, statics, getters }) => {
 			const store = this;
 			const staticsData = statics(store.props);
 			Object.assign(store, staticsData);
+			this.staticsKeys = Object.keys(staticsData);
 		};
 
 		__applyObservableData = ({ observables }) => {
 			const store = this;
 			const observablesData = observables(store.props);
 			extendObservable(store, observablesData);
+			this.observablesKeys = Object.keys(observablesData);
 		};
+
+		get __renderData() {
+			if (this.observablesKeys || this.staticsKeys) {
+				const keys = [...(this.staticsKeys || []), ...(this.observablesKeys || [])];
+				return keys.reduce((final, key) => {
+					final[key] = this[key];
+					return final;
+				}, {});
+			}
+		}
 	}
 }

@@ -1,7 +1,10 @@
 import nanoid from 'nanoid';
+import TestModel from '@app/models/Test';
 
 export default (store) => {
 	return (...args) => {
-		store.tests.push({ uid: nanoid(16), type: 'mouse' });
+		store.tests.push(new TestModel({
+			...store.props
+		}));
 	}
 }

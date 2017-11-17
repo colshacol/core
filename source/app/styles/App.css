@@ -1,4 +1,18 @@
+:local .body {
+	display: column;
+	width: 100vw;
+}
 
-.title {
-	background: blue;
+.bottomShadow {
+	background: white;
+	width: 120vw;
+	height: 241px;
+	display: block;
+	position: fixed;
+	bottom: -350px;
+	left: 0;
+	right: 0;
+	box-shadow: -12px -24px 100px 32px dark0;
+	transform: rotate(3deg);
+	z-index: 0;
 }

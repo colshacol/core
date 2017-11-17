@@ -54,18 +54,5 @@ export default ({ statics, observables, actions, getters }) => Component => {
 				return final;
 			}, {});
 		}
-
-		render() {
-			console.log('Store...', { store: this });
-			return (
-				<Component
-					{...this.props}
-					store={{
-						actions: this.__actions,
-						data: this.__renderData,
-					}}
-				/>
-			);
-		}
 	};
 };

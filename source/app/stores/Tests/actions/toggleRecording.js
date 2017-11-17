@@ -1,5 +1,5 @@
 export default (store) => {
 	return (...args) => {
-		store.steps.push({ test: 'step' });
+		store.recording = !store.recording;
 	}
 }

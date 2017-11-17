@@ -1,4 +1,4 @@
-import Model from '@app/utilities/Model';
+import { Model } from '@app/utilities/store';
 
 import * as actions from './actions';
 import * as getters from './getters';
@@ -10,4 +10,4 @@ export default Model({
 	getters,
 	statics,
 	observables
-})
+});

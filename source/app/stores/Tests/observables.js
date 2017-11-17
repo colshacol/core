@@ -5,10 +5,12 @@ type Test = {
 
 type TestsStoreObservables = {|
 	tests: Test[],
+		recording: boolean,
 |};
 
 export default (): TestsStoreObservables => {
 	return {
 		tests: [],
+		recording: false,
 	}
 }

@@ -1,4 +1,4 @@
-import Store from '@app/utilities/Model/Store';
+import { Store } from '@app/utilities/store';
 import nanoid from 'nanoid';
 
 import * as actions from './actions';

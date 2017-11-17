@@ -1,16 +1,24 @@
 import * as React from "react";
 
-import TestsList from '@app/scenes/TestsList';
+import Topbar from '@app/components/Topbar';
+import { ActionBar } from '@app/components/ActionBar';
+import { TestsList } from '@app/scenes/TestsList';
 import "./styles/App.css";
+
 class App extends React.Component {
-  render() {
-    return (
-				<div>
-					{/* TODO: Routng. */}
-					<TestsList/>
+	render({ props, state } = this) {
+		return (
+			<div styleName='body'>
+				<div styleName='bottomShadow'>
+					yolo
 				</div>
+				<Topbar />
+				{/* TODO: Routng. */}
+				<TestsList />
+				<ActionBar />
+			</div>
 		);
-  }
+	}
 }
 
 export default App;

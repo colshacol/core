@@ -1,15 +1,16 @@
 import nanoid from 'nanoid';
 
 type TestModelStatics = {|
-	creationDate: string,
-	creator: string,
-	uid: string
+	creationDate: string | number,
+		creator: string,
+			uid: string,
 |};
 
-export default (props):TestModelStatics => {
+export default (props = {}): TestModelStatics => {
+	console.log('PROPS', { props })
 	return {
-		creationDate: props.creationDate,
+		creationDate: props.creationDate || Date.now(),
 		creator: props.creator || 'mr.rogers',
-		uid: nanouid(16);
+		uid: nanoid(16),
 	}
 }
