@@ -12,10 +12,10 @@ export default class TestsList extends React.Component {
 		return (
 			<div styleName='TestsList'>
 				<h2>TESTSLIST</h2>
-				<h3>ADD TEST</h3>
+				<h3 onClick={() => props.$tests.actions.addTest()}>ADD TEST</h3>
 				<hr />
 				<For each='test' of={props.$tests.tests}>
-					<EventTypeBox type={test.type} />
+					<EventTypeBox type={test.type} key={test.uid} />
 				</For>
 			</div>
 		)
