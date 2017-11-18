@@ -1,0 +1,1 @@
+export mockTest from './mockTest';
