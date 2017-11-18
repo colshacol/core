@@ -1,3 +1,3 @@
 export default (store) => {
-	return store.data.steps[store.data.steps.length - 1];
+	return store.steps[store.steps.length - 1];
 }

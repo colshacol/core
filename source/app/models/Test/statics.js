@@ -7,10 +7,9 @@ type TestModelStatics = {|
 |};
 
 export default (props = {}): TestModelStatics => {
-	console.log('PROPS', { props })
 	return {
 		creationDate: props.creationDate || Date.now(),
 		creator: props.creator || 'mr.rogers',
-		uid: nanoid(16),
+		uid: props.uid || nanoid(16),
 	}
 }

@@ -9,7 +9,7 @@
     "start-server": "webpack-dev-server --color --config .webpack.js",
     "build": "",
     "lint": "",
-    "test": "jest"
+    "test": "clear && jest --config .jest.js"
   },
   "author": "",
   "license": "ISC",
@@ -35,7 +35,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "flow-bin": "^0.59.0",
     "flow-runtime": "^0.16.0",
-    "jest": "^21.2.1",
+    "jest": "^21.3.0-beta.8",
     "json-loader": "^0.5.7",
     "postcss": "^6.0.14",
     "postcss-loader": "^2.0.8",

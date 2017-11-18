@@ -7,11 +7,11 @@ export default ({ name = '', observables, actions, statics, getters }) => {
 
 		constructor(props) {
 			this.props = props;
+			this.actions = 'hello'
 			this.__applyActions({ actions });
 			this.__applyGetters({ getters });
 			this.__applyStaticData({ statics });
 			this.__applyObservableData({ observables });
-			console.log('[ created store ]', name, { store: this, observables, statics });
 		}
 
 		__applyActions = ({ actions }) => {
