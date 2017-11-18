@@ -29,15 +29,16 @@
 
 .action {
 	transition: all 0.3s;
-}
-
-.action:not(.recording) {
 	max-height: 32px;
 	max-width: 32px;
 	min-height: 32px;
 	min-width: 32px;
 	height: 32px;
 	width: 32px;
+}
+
+.action {
+	fill: white;
 }
 
 .action:not(:last-of-type) {
@@ -56,11 +57,8 @@
 }
 
 .action.recording {
-	position: relative;
-	right: 3px;
-	-webkit-animation: rotation 1.5s infinite ease-in-out;
+	-webkit-animation: rotation 1.5s infinite linear;
 	filter: drop-shadow(0px 0px 16px rgba(232,69,137,0.95));
-	margin-right: 26px;
 }
 
 

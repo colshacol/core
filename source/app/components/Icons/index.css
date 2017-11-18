@@ -1,0 +1,23 @@
+:global .svg-gradient-Green {
+	fill: url('#greenGradient') !important;
+}
+
+:global .svg-gradient-Red {
+	fill: url('#redGradient') !important;
+}
+
+:global .svg-gradient-Purple {
+	fill: url('#purpleGradient') !important;
+}
+
+:global .svg-gradient-Blue {
+	fill: url('#blueGradient') !important;
+}
+
+:global .svg-gradient-Orange {
+	fill: url('#orangeGradient') !important;
+}
+
+:global .svg-gradient-White {
+	fill: url('#WhiteGradient') !important;
+}

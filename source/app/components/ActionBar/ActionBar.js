@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 
-import PlayIcon from '@app/assets/play-button.svg';
 import PauseIcon from '@app/assets/pause.svg';
 import StopIcon from '@app/assets/stop.svg';
 import ReplayIcon from '@app/assets/replay.svg';
 import BookmarkIcon from '@app/assets/agenda.svg';
-import RecordStoppedIcon from '@app/assets/record-stopped.svg';
-import RecordPlayingIcon from '@app/assets/record-playing.svg';
+import * as Icons from '@app/components/Icons';
 import SaveIcon from '@app/assets/save.svg';
 import './styles/ActionBar.css';
 
@@ -23,13 +21,24 @@ export default class ActionBar extends React.Component {
 					<div styleName='left'>
 						<Choose>
 							<When condition={!props.$tests.recording}>
-								<RecordStoppedIcon styleName='action' width={32} height={32} onClick={toggleRecording} />
+								<Icons.Record
+									styleName='action'
+									width="32px"
+									height="32px"
+									onClick={toggleRecording}
+								/>
 							</When>
 							<Otherwise>
-								<RecordPlayingIcon styleName='action recording' width={38} height={38} onClick={toggleRecording} />
+								<Icons.Record
+									styleName='action recording'
+									width="32px"
+									height="32px"
+									gradient='red'
+									onClick={toggleRecording}
+								/>
 							</Otherwise>
 						</Choose>
-						<PlayIcon styleName='action' width={32} height={32} />
+						<Icons.Play styleName='action' width="32px" height="32px" gradient='red' />
 						<PauseIcon styleName='action' width={32} height={32} />
 						<StopIcon styleName='action' width={32} height={32} />
 						<ReplayIcon styleName='action' width={32} height={32} />
