@@ -1,5 +1,5 @@
 export default (store) => {
-	return (...args) => {
-		store.steps.push({ test: 'step' });
+	return (newStep) => {
+		store.steps.push(newStep);
 	}
 }
