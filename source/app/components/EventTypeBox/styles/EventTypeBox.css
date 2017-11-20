@@ -34,5 +34,5 @@
 }
 
 .icon {
-	filter: drop-shadow(0px 1px 2px rgba(dark0,0.2))
+	filter: iconShadow;
 }
