@@ -1,9 +1,10 @@
 import * as React from "react";
 
 import ErrorBoundary from '@app/components/ErrorBoundary';
-import PointerIcon from "@app/assets/PointerIcon";
-import KeyIcon from "@app/assets/KeyIcon";
-import YieldIcon from "@app/assets/YieldIcon";
+import Icon from '@app/components/Icon';
+import KeyboardIcon from '@app/assets/svgs/keyboard.svg'
+import PointerIcon from '@app/assets/svgs/mouse-arrow.svg'
+import YieldIcon from '@app/assets/svgs/yield.svg'
 
 import "./styles/EventTypeBox.css";
 
@@ -21,20 +22,20 @@ const EventTypeBox = (props: PropTypes) => {
 	const color = colors[props.type];
 
 
-	const Icon = do {
+	const { Icon, size } = do {
 		if (props.type === "mouse") {
-			PointerIcon;
+			({ Icon: PointerIcon, size: 26 })
 		} else if (props.type === "keyboard") {
-			KeyIcon;
+			({ Icon: KeyboardIcon, size: 32 })
 		} else if (props.type === "assertion") {
-			YieldIcon;
+			({ Icon: YieldIcon, size: 28 })
 		}
 	};
 
 	return (
 		<ErrorBoundary>
 			<div styleName={`EventTypeBox ${color}`}>
-				<Icon styleName="icon" width={24} height={24} />
+				<Icon width={size} height={size} />
 			</div>
 		</ErrorBoundary>
 	);
