@@ -14,18 +14,18 @@ interface PropTypes {
 const EventTypeBox = (props: PropTypes) => {
 	const { Icon, size, color } = do {
 		if (props.type === "mouse") {
-			({ Icon: PointerIcon, size: 26, color: 'red' })
+			({ Icon: PointerIcon, size: 24, color: 'red' })
 		} else if (props.type === "keyboard") {
-			({ Icon: KeyboardIcon, size: 32, color: 'blue' })
+			({ Icon: KeyboardIcon, size: 28, color: 'blue' })
 		} else if (props.type === "assertion") {
-			({ Icon: YieldIcon, size: 28, color: 'green' })
+			({ Icon: YieldIcon, size: 26, color: 'green' })
 		}
 	};
 
 	return (
 		<ErrorBoundary>
 			<div styleName={`EventTypeBox ${color}`}>
-				<Icon width={size} height={size} />
+				<Icon styleName='icon' width={size} height={size} />
 			</div>
 		</ErrorBoundary>
 	);
