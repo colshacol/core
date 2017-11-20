@@ -1,3 +1,7 @@
+:global .icon {
+	text-align: center;
+}
+
 :global .icon-small {
 	font-size: 24px;
 }

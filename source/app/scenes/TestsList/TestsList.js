@@ -2,7 +2,7 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import EventTypeBox from '@app/components/EventTypeBox';
 
-import Icon from '@app/components/Icon';
+import { Icon } from '@app/components/Icon';
 import './styles/TestsList.css';
 
 @inject('$tests')

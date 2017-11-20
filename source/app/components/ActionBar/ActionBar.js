@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 
-import Icon from '@app/components/Icon';
+import { Icon } from '@app/components/Icon';
 import PlayIcon from '@app/assets/svgs/circle_play.svg';
 import './styles/ActionBar.css';
 
