@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { Topbar } from '@app/components/Topbar';
 import { ActionBar } from '@app/components/ActionBar';
-import { TestsList } from '@app/scenes/TestsList';
+import { TestsList } from '@app/components/TestsList';
 import "./styles/App.css";
 
 class App extends React.Component {

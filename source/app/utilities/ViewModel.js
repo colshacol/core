@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { observable } from 'mobx';
 
-export default (Store) => (Component) => {
+export default (Model) => (Component) => {
 	return @observable class BoundStore extends React.Component {
-		store = new Store(this.props);
+		store = new Model(this.props);
 
 		render() {
 			return (
