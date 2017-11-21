@@ -100,7 +100,7 @@ module.exports = {
 			"@app/components": resolver("source/app/components"),
 			"@app/constants": resolver("source/app/constants"),
 			"@app/models": resolver("source/app/models"),
-			"@app/stores": resolver("source/app/stores"),
+			"@app/viewModels": resolver("source/app/viewModels"),
 			"@app/services": resolver("source/app/services"),
 			"@app/styles": resolver("source/app/styles"),
 			"@app/scenes": resolver("source/app/scenes"),

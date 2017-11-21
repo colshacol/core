@@ -2,15 +2,16 @@ import mobx, { observable, action, computed, extendObservable } from 'mobx';
 import protect from './protect';
 
 export default ({ name = '', observables, actions, statics, getters }) => {
-	return class _Store {
+	return class Model {
 		actions = {};
+		type = 'Model';
 
-		constructor(props) {
+		constructor(props = {}) {
 			this.props = props;
 			this.__applyActions({ actions });
 			this.__applyGetters({ getters });
-			this.__applyStaticData({ statics });
-			this.__applyObservableData({ observables });
+			this.__applyStaticData({ statics, props });
+			this.__applyObservableData({ observables, props });
 		}
 
 		__applyActions = ({ actions }) => {
@@ -31,14 +32,14 @@ export default ({ name = '', observables, actions, statics, getters }) => {
 			});
 		};
 
-		__applyStaticData = ({ statics }) => {
+		__applyStaticData = ({ statics, props }) => {
 			const store = this;
 			const staticsData = statics(store.props);
 			Object.assign(store, staticsData);
 			this.staticsKeys = Object.keys(staticsData);
 		};
 
-		__applyObservableData = ({ observables }) => {
+		__applyObservableData = ({ observables, props }) => {
 			const store = this;
 			const observablesData = observables(store.props);
 			extendObservable(store, observablesData);

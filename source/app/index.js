@@ -4,14 +4,14 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 import { AppContainer } from 'react-hot-loader';
 
-import TestsStore from '@app/models/Tests';
+import TestsModel from '@app/models/Tests';
 import App from './App';
 import './styles/index.css';
 
 const render = (Component) => {
 	ReactDOM.render(
 		<AppContainer>
-			<Provider $tests={new TestsStore()}>
+			<Provider $tests={new TestsModel()}>
 				<App />
 			</Provider>
 		</AppContainer>,

@@ -1,4 +1,4 @@
-import Store from '../Store';
+import Model from '../Model';
 
 const STUB = 'STUB';
 
@@ -6,7 +6,7 @@ const observablesSTUB = jest.fn();
 const staticsSTUB = jest.fn();
 
 const actionsSTUB = {
-	do(store) {
+	do(model) {
 		return () => {
 			return STUB;
 		}
@@ -14,13 +14,13 @@ const actionsSTUB = {
 }
 
 const gettersSTUB = {
-	getter(store) {
+	getter(model) {
 		return STUB;
 	}
 }
 
-test('creates a Store', () => {
-	// const result = Store({
+test('creates a Model', () => {
+	// const result = Model({
 	// 	observables: observablesSTUB,
 	// 	statics: staticsSTUB,
 	// 	actions: actionsSTUB,

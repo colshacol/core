@@ -1,0 +1,58 @@
+.TestOverview {
+	margin: 18px 0;
+	width: 100%;
+	background: blueGradient;
+	border-radius: 2px;
+	display: column;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.TestOverview:first-of-type {
+	margin-top: 24px;
+}
+
+.tops {
+	display: row;
+	margin-bottom: 4px;
+	background: darkGradient-reversed;
+}
+
+.label {
+	padding: 16px;
+	max-width: 550px;
+	width: 70%;
+}
+
+/* .actions {
+	width: 30%;
+	padding: 8px 16px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.action {
+	margin-left: 16px;
+} */
+
+.label h3 {
+	text-shadow: textShadow;
+}
+
+.info {
+	width: 30%;
+	padding: 0 32px;
+	display: row;
+	align-items: center;
+}
+
+.info > span {
+	margin-right: 32px;
+	display: row;
+	align-items: center;
+}
+
+.info-icon {
+	margin-right: 8px;
+}

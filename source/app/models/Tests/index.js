@@ -1,5 +1,4 @@
 import { Model } from '@app/utilities';
-import nanoid from 'nanoid';
 
 import * as actions from './actions';
 import * as getters from './getters';

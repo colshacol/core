@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { observable } from 'mobx';
+import { observer } from 'mobx-react';
 
 export default (Model) => (Component) => {
-	return @observable class BoundStore extends React.Component {
+	return @observer class ViewModel extends React.Component {
 		store = new Model(this.props);
+		type = 'ViewModel';
 
 		render() {
 			return (
@@ -11,7 +12,7 @@ export default (Model) => (Component) => {
 					{...this.props}
 					store={{
 						actions: this.store.actions,
-						data: this.store.__renderData,
+						...this.store.__renderData
 					}}
 				/>
 			);

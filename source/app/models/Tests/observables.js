@@ -3,14 +3,14 @@ type Test = {
 	type: string,
 };
 
-type TestsStoreObservables = {|
+type TestsStoreObservables = {
 	tests: Test[],
-		recording: boolean,
-|};
+	recording: boolean,
+};
 
-export default (): TestsStoreObservables => {
+export default (props): TestsStoreObservables => {
 	return {
-		tests: [],
+		tests: props.tests || [],
 		recording: false,
 	}
 }

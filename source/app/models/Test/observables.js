@@ -1,13 +1,15 @@
-type TestModelObservables = {|
+type TestModelObservables = {
 	steps: Object[],
-		type: string,
-|};
+	label: string,
+	type: string,
+};
 
 
 
 export default (props = {}): TestModelObservables => {
 	return {
 		steps: props.steps || [],
+		label: props.label || '',
 		type: props.type,
 	}
 }
